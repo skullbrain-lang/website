@@ -1,0 +1,42 @@
+:root {
+  --bg-color: #121212;
+  --text-color: #d1d1d1;
+  --accent-color: #ff4500;
+  --secondary-color: #6a00ff;
+  --card-bg: #1e1e1e;
+  --code-bg: #2d2d2d;
+}
+
+body {
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 3px 3px 0 var(--accent-color),
+      6px 6px 0 var(--secondary-color);
+  transform: rotate(-2deg);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--accent-color);
+  transform: rotate(-1deg);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+section {
+  padding: 60px 0;
+}
