@@ -3,6 +3,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import Header from '@/components/layout/Header';
 import { Toaster } from '@/components/ui/toaster';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'SkullBrain',
@@ -28,6 +29,9 @@ export default function RootLayout({
         </div>
         <Toaster />
       </body>
+      <footer>
+        <Footer />
+      </footer>
     </html>
   );
 }
