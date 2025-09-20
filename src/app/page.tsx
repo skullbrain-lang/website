@@ -39,7 +39,6 @@ const FloatingThing = ({ children, className, animationDuration, animationDelay 
 
 
 export default function Home() {
-  const [isOverdrive, setIsOverdrive] = React.useState(false);
 
 
 
@@ -47,48 +46,53 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center bg-black text-white">
       {/* Hero Section */}
-      <section
-        className="w-full min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group"
-        data-overdrive={isOverdrive}
-        style={{
-          '--noise-bg-color': 'hsl(var(--primary) / 0.1)',
-        } as React.CSSProperties}
-      >
-        <div className="absolute inset-0 bg-noise opacity-30 group-data-[overdrive=true]:animate-color-pulse"></div>
-        <div className="absolute inset-0 bg-radial-vignette"></div>
-
-        <FloatingThing className="top-[10%] left-[10%]" animationDuration="12s">💀</FloatingThing>
-        <FloatingThing className="top-[20%] right-[15%]" animationDuration="8s" animationDelay="2s">🔥</FloatingThing>
-        <FloatingThing className="bottom-[15%] left-[20%]" animationDuration="10s" animationDelay="1s">💅</FloatingThing>
-        <FloatingThing className="bottom-[25%] right-[25%]" animationDuration="15s" animationDelay="4s">🗿</FloatingThing>
-        <FloatingThing className="top-[50%] left-[5%]" animationDuration="9s" animationDelay="3s">🧠</FloatingThing>
-        <FloatingThing className="top-[5%] right-[30%]" animationDuration="11s" animationDelay="5s">💯</FloatingThing>
-
-        <div className="glitch group-data-[overdrive=true]:animate-fast-glitch">
-          <SkullIcon className="h-32 w-32 text-primary group-data-[overdrive=true]:animate-flash" />
-        </div>
-        <h1
-          className="text-5xl md:text-7xl font-bold font-headline tracking-tighter my-6 glitch-text group-data-[overdrive=true]:animate-text-distort"
-          onMouseEnter={() => setIsOverdrive(true)}
-          onMouseLeave={() => setIsOverdrive(false)}
-        >
-          <span className="chromatic-aberration" data-text="SkullBrain">SkullBrain</span>
-        </h1>
-        <p className="max-w-2xl mx-auto text-2xl text-foreground/80 mb-8 font-headline tracking-widest group-data-[overdrive=true]:animate-text-distort-slower">
-          Coding is a skibidi rizz.
-        </p>
-        <Button size="lg" asChild className="hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-primary/50 glitch">
-          <Link href="/editor">
-            Get Bussin'
-          </Link>
-        </Button>
-      </section>
-
+      <Hero />
       <Features />
       <GehDeeper />
       <CallToAction />
     </div>
   );
+}
+
+function Hero() {
+  const [isOverdrive, setIsOverdrive] = React.useState(false);
+
+  return <section
+    className="w-full min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group"
+    data-overdrive={isOverdrive}
+    style={{
+      '--noise-bg-color': 'hsl(var(--primary) / 0.1)',
+    } as React.CSSProperties}
+  >
+    <div className="absolute inset-0 bg-noise opacity-30 group-data-[overdrive=true]:animate-color-pulse"></div>
+    <div className="absolute inset-0 bg-radial-vignette"></div>
+
+    <FloatingThing className="top-[10%] left-[10%]" animationDuration="12s">💀</FloatingThing>
+    <FloatingThing className="top-[20%] right-[15%]" animationDuration="8s" animationDelay="2s">🔥</FloatingThing>
+    <FloatingThing className="bottom-[15%] left-[20%]" animationDuration="10s" animationDelay="1s">💅</FloatingThing>
+    <FloatingThing className="bottom-[25%] right-[25%]" animationDuration="15s" animationDelay="4s">🗿</FloatingThing>
+    <FloatingThing className="top-[50%] left-[5%]" animationDuration="9s" animationDelay="3s">🧠</FloatingThing>
+    <FloatingThing className="top-[5%] right-[30%]" animationDuration="11s" animationDelay="5s">💯</FloatingThing>
+
+    <div className="glitch group-data-[overdrive=true]:animate-fast-glitch">
+      <SkullIcon className="h-32 w-32 text-primary group-data-[overdrive=true]:animate-flash" />
+    </div>
+    <h1
+      className="text-5xl md:text-7xl font-bold font-headline tracking-tighter my-6 glitch-text group-data-[overdrive=true]:animate-text-distort"
+      onMouseEnter={() => setIsOverdrive(true)}
+      onMouseLeave={() => setIsOverdrive(false)}
+    >
+      <span className="chromatic-aberration" data-text="SkullBrain">SkullBrain</span>
+    </h1>
+    <p className="max-w-2xl mx-auto text-2xl text-foreground/80 mb-8 font-headline tracking-widest group-data-[overdrive=true]:animate-text-distort-slower">
+      Coding is a skibidi rizz.
+    </p>
+    <Button size="lg" asChild className="hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-primary/50 glitch">
+      <Link href="/editor">
+        Get Bussin'
+      </Link>
+    </Button>
+  </section>;
 }
 
 function GehDeeper() {
