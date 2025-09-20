@@ -1,103 +1,203 @@
-import Image from "next/image";
+
+'use client';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { ArrowRight, BookOpen, CheckSquare } from 'lucide-react';
+import Image from 'next/image';
+import React from 'react';
+
+const SkullIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M12 2a2 2 0 0 0-2 2v2H8a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2V8a2 2 0 0 0-2-2h-2V4a2 2 0 0 0-2-2z" />
+    <path d="M8 12h8" />
+    <path d="M9 16h6" />
+  </svg>
+);
+
+const FloatingThing = ({ children, className, animationDuration, animationDelay }: { children: React.ReactNode, className?: string, animationDuration?: string, animationDelay?: string }) => (
+  <div
+    className={`absolute text-5xl opacity-0 ${className}`}
+    style={{
+      animation: `float-in-out ${animationDuration || '10s'} infinite ${animationDelay || '0s'}`,
+    }}
+  >
+    {children}
+  </div>
+);
+
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isOverdrive, setIsOverdrive] = React.useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const features = [
+    {
+      title: 'Brainrot Syntax',
+      description: 'Why use normal keywords when you can `rizz` and `goon`? Make your code incomprehensible to anyone who isn\'t chronically online.',
+      snippet: '    mew bop goated hash#️⃣_2 uwu param0📋 is clutch owo bustin chad bussin\n                yo fam Это сгенерированный комментарий 🇷🇺\n        delulu "Cześć świecie 🇵🇱".\n    no cap',
+    },
+    {
+      title: 'Modern Structure',
+      description: 'We have all the object-oriented buzzwords, but we made them edgy. Use `deadass` for classes, `vibe` for traits, and `bop` for functions.',
+      snippet: 'vibe Iमै네джер🇮🇳 bussin\n        bop goated authenticate🔑_0 uwu param0📋 is chad owo bustin aura.\nno cap',
+    },
+    {
+      title: 'Modular (somehow)',
+      description: 'Organize your chaos. Import and export modules like a real developer, but with 100% more brainrot. No one knows how it works, but it does.',
+      snippet: 'glizzy game like render;\n\nrender uwu owo',
+    },
+    {
+      title: 'Not Slow As Shit',
+      description: "It's not the fastest thing on the planet, but it won't take 100 million years to run hello world. It parses, it executes, and it gets the job done without being a total drag. We don't have benchmarks, just vibes.",
+      snippet: 'gyatt output📤_0 is chad skibidi "ũñîçø∂ë çhäøs 💀".\ngyatt edge🔗_2 is cringe skibidi 36196u.',
+    },
+  ];
+
+  const memes = [
+    "https://media.tenor.com/tZ21r1D_-wIAAAAd/cat-no.gif",
+    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2trcDRzYmhvaTZwMGp0eDFiaDVmMjM5OGVtc3BxdXJ5N2I1bDUyMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgVndwLzC9jwc/giphy.gif",
+    "https://media.tenor.com/o656qFKD_dYAAAAM/sigma-face.gif",
+    "https://media.tenor.com/2o80g0aX3iEAAAAM/giga-chad.gif"
+  ];
+
+  return (
+    <div className="flex flex-col items-center bg-black text-white">
+      {/* Hero Section */}
+      <section
+        className="w-full min-h-screen flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group"
+        data-overdrive={isOverdrive}
+        style={{
+          '--noise-bg-color': 'hsl(var(--primary) / 0.1)',
+        } as React.CSSProperties}
+      >
+        <div className="absolute inset-0 bg-noise opacity-30 group-data-[overdrive=true]:animate-color-pulse"></div>
+        <div className="absolute inset-0 bg-radial-vignette"></div>
+
+        <FloatingThing className="top-[10%] left-[10%]" animationDuration="12s">💀</FloatingThing>
+        <FloatingThing className="top-[20%] right-[15%]" animationDuration="8s" animationDelay="2s">🔥</FloatingThing>
+        <FloatingThing className="bottom-[15%] left-[20%]" animationDuration="10s" animationDelay="1s">💅</FloatingThing>
+        <FloatingThing className="bottom-[25%] right-[25%]" animationDuration="15s" animationDelay="4s">🗿</FloatingThing>
+        <FloatingThing className="top-[50%] left-[5%]" animationDuration="9s" animationDelay="3s">🧠</FloatingThing>
+        <FloatingThing className="top-[5%] right-[30%]" animationDuration="11s" animationDelay="5s">💯</FloatingThing>
+
+        <div className="glitch group-data-[overdrive=true]:animate-fast-glitch">
+          <SkullIcon className="h-32 w-32 text-primary group-data-[overdrive=true]:animate-flash" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <h1
+          className="text-5xl md:text-7xl font-bold font-headline tracking-tighter my-6 glitch-text group-data-[overdrive=true]:animate-text-distort"
+          onMouseEnter={() => setIsOverdrive(true)}
+          onMouseLeave={() => setIsOverdrive(false)}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <span className="chromatic-aberration" data-text="SkullBrain">SkullBrain</span>
+        </h1>
+        <p className="max-w-2xl mx-auto text-2xl text-foreground/80 mb-8 font-headline tracking-widest group-data-[overdrive=true]:animate-text-distort-slower">
+          Coding is a skibidi rizz.
+        </p>
+        <Button size="lg" asChild className="hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-primary/50 glitch">
+          <Link href="/editor">
+            Get Bussin'
+          </Link>
+        </Button>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="w-full py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col gap-8">
+            {features.map((feature, index) => (
+              <Card key={index} className="bg-card border-border/50 overflow-hidden md:flex md:flex-row transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+                <div className="p-6 md:w-1/2 flex flex-col justify-center">
+                  <CardHeader className="p-0 mb-4">
+                    <CardTitle className="font-headline text-3xl skew-y-[-3deg] text-primary">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-0">
+                    <p className="text-foreground/80 font-handwritten text-lg">{feature.description}</p>
+                  </CardContent>
+                </div>
+                <div className="bg-secondary/50 md:w-1/2 p-6 flex items-center justify-center">
+                  <pre className="font-code text-primary bg-secondary p-4 rounded-md text-sm w-full whitespace-pre-wrap">{feature.snippet}</pre>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Go Deeper Section */}
+      <section className="w-full py-16 md:py-24 bg-secondary/20">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-12">Go Deeper, Gooner</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="bg-card border-border/50 text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <BookOpen className="h-10 w-10 text-primary" />
+                  <CardTitle className="font-headline text-3xl">Read the Spec</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4 font-handwritten text-lg">
+                  Dive into the official SkullBrain specification. It's probably written on a stained napkin, but it's all there.
+                </CardDescription>
+                <Button asChild variant="outline">
+                  <Link href="/spec">
+                    View Spec <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="bg-card border-border/50 text-left transform transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <CheckSquare className="h-10 w-10 text-primary" />
+                  <CardTitle className="font-headline text-3xl">Getting Started Guide</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="mb-4 font-handwritten text-lg">
+                  Follow our step-by-step guide to rot your brain and start gooning with SkullBrain.
+                </CardDescription>
+                <Button asChild>
+                  <Link href="/getting-started">
+                    Start Gooning <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="w-full py-20 bg-secondary/30">
+        <div className="container mx-auto text-center px-4 flex flex-col items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            {memes.map((meme, index) => (
+              <div key={index} className="relative aspect-square w-32 h-32 md:w-48 md:h-48">
+                <Image src={meme} layout="fill" objectFit="contain" alt="goon gif" unoptimized />
+              </div>
+            ))}
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold font-headline mb-6">Ready to Skibidi?</h2>
+          <Button size="lg" asChild className="bg-primary/90 hover:bg-primary text-primary-foreground">
+            <Link href="/editor">
+              Enter the Skibidi Realm <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
     </div>
   );
 }
+
