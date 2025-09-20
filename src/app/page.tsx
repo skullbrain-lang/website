@@ -65,10 +65,8 @@ export default function Home() {
   ];
 
   const memes = [
-    "https://media.tenor.com/tZ21r1D_-wIAAAAd/cat-no.gif",
-    "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2trcDRzYmhvaTZwMGp0eDFiaDVmMjM5OGVtc3BxdXJ5N2I1bDUyMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qgVndwLzC9jwc/giphy.gif",
-    "https://media.tenor.com/o656qFKD_dYAAAAM/sigma-face.gif",
-    "https://media.tenor.com/2o80g0aX3iEAAAAM/giga-chad.gif"
+    "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3NuNGFwMGZpMGVrbGV2bWQwYzY5azB1ZGxrYnh6Zmh3MnBleG1uNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IPHgtwOWk7xwta52n2/giphy.gif",
+    "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExejMxdXh2bDJraWp1NjRyNHc3aGtwZXBoMG8zMHQ5OTdjbG52bWp4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xhGE4p9ygdQibhjO5G/giphy.gif"
   ];
 
   return (
@@ -182,7 +180,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="w-full py-20 bg-secondary/30">
         <div className="container mx-auto text-center px-4 flex flex-col items-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="flex flex-row items-center gap-4 mb-8">
             {memes.map((meme, index) => (
               <div key={index} className="relative aspect-square w-32 h-32 md:w-48 md:h-48">
                 <Image src={meme} layout="fill" objectFit="contain" alt="goon gif" unoptimized />
