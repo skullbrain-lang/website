@@ -5,7 +5,7 @@
       "name": "skullbrain-website",
       "dependencies": {
         "gray-matter": "^4.0.3",
-        "humanize-string": "^3.0.0",
+        "humanize-string": "^3.1.0",
         "marked": "^15.0.7",
         "next": "^15.5.3",
         "react": "^19.0.0",
@@ -375,7 +375,7 @@
 
     "hasown": ["hasown@2.0.2", "", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ=="],
 
-    "humanize-string": ["humanize-string@3.0.0", "", { "dependencies": { "decamelize": "^6.0.0" } }, "sha512-jhWD2GAZRMELz0IEIfqpEdi0M4CMQF1GpJpBYIopFN6wT+78STiujfQTKcKqZzOJgUkIgJSo2xFeHdsg922JZQ=="],
+    "humanize-string": ["humanize-string@3.1.0", "", { "dependencies": { "decamelize": "^6.0.0" } }, "sha512-wEtOOR3sT8nZ7W0WZwEXo68z2EA0kpcpjaN/ZXxpps9PDzZdX8+TAj+XOGKx2WkagP9mnhWtFpfMNSd2WAhiIQ=="],
 
     "ignore": ["ignore@5.3.2", "", {}, "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g=="],
 
@@ -688,8 +688,6 @@
     "eslint-plugin-import/debug": ["debug@3.2.7", "", { "dependencies": { "ms": "^2.1.1" } }, "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="],
 
     "eslint-plugin-react/resolve": ["resolve@2.0.0-next.5", "", { "dependencies": { "is-core-module": "^2.13.0", "path-parse": "^1.0.7", "supports-preserve-symlinks-flag": "^1.0.0" }, "bin": "bin/resolve" }, "sha512-U7WjGVG9sH8tvjW5SmGbQuui75FiyjAX72HX15DwBBwF9dNiQZRQAg9nnPhYy+TUnE0+VcrttuvNI8oSxZcocA=="],
-
-    "eslint-plugin-react/semver": ["semver@6.3.1", "", { "bin": "bin/semver.js" }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 
     "fast-glob/glob-parent": ["glob-parent@5.1.2", "", { "dependencies": { "is-glob": "^4.0.1" } }, "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow=="],
 
