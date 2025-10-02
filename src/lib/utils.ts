@@ -32,7 +32,7 @@ export function formatAndCapitalize(text: string): string {
 }
 
 export const GITHUB_OWNER = 'skullbrain-lang';
-export const GITHUB_SPEC_REPO = 'specification';
+export const GITHUB_SPEC_REPO = 'reference';
 export const GITHUB_SPEC_PATH = 'src'; // flder in repo
 
 
