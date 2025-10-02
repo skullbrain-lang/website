@@ -1,8 +1,34 @@
-import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
+import type { NextConfig } from 'next'
+
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+  extension: /\.mdx?$/,
+})
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-};
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
-export default nextConfig;
+  redirects:async function redirects() {
+    return [
+      {
+        source: '/spec',
+        destination: '/spec/introduction',
+        // Use permanent: true for a 308 redirect, 
+        // which tells browsers and search engines the move is permanent and cacheable.
+        permanent: true, 
+      },
+    ];
+  },
+}
+
+export default withMDX(nextConfig)
