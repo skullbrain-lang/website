@@ -16,7 +16,7 @@ import * as React from "react";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/editor", label: "Editor" },
-  { href: "/spec", label: "Lang Specification" },
+  { href: "/spec", label: "Specification" },
   { href: "/getting-started", label: "Getting Started" },
   { href: "/changelog", label: "Changelog" },
 ];

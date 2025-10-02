@@ -16,7 +16,19 @@ const nextConfig: NextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
-  }
+  },
+
+  redirects:async function redirects() {
+    return [
+      {
+        source: '/spec',
+        destination: '/spec/introduction',
+        // Use permanent: true for a 308 redirect, 
+        // which tells browsers and search engines the move is permanent and cacheable.
+        permanent: true, 
+      },
+    ];
+  },
 }
 
 export default withMDX(nextConfig)
