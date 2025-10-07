@@ -15,5 +15,9 @@ export default async function SpecPage({ params }: { params: { slug: string } })
         },
     };
 
-    return <MDXRemote source={source} options={options}/>;
+    return (
+      <div className="prose dark:prose-invert">
+        <MDXRemote source={source} options={options}/>
+      </div>
+    );
 }
