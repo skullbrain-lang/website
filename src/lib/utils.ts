@@ -37,4 +37,4 @@ export const GITHUB_SPEC_PATH = 'src'; // flder in repo
 
 
 
-export const USE_DUMMY_SPEC_SOURCE = true;
+export const USE_DUMMY_SPEC_SOURCE = false;
