@@ -7,7 +7,6 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'SkullBrain',
-  description: 'Coding is a skibidi rizz.',
 };
 
 export default function RootLayout({

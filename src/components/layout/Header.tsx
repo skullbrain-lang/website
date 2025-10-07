@@ -18,7 +18,6 @@ const navLinks = [
   { href: "/editor", label: "Editor" },
   { href: "/spec", label: "Specification" },
   { href: "/getting-started", label: "Getting Started" },
-  { href: "/changelog", label: "Changelog" },
 ];
 
 export default function Header() {
