@@ -3,9 +3,9 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menu, Skull } from "lucide-react";
+import { Menu } from "lucide-react";
 import { GithubIcon } from "@/components/ui/GithubIcon";
-
+import Image from 'next/image'
 import {
   Sheet,
   SheetContent,
@@ -29,7 +29,7 @@ export default function Header() {
       <div className="w-full px-4 flex h-14 items-center max-w-none">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Skull className="h-6 w-6 text-primary glitch" />
+            <Image className="text-primary glitch" src={"/sb-logo.png"} width={24} height={24} alt="Logo" />
             <span className="font-bold font-headline sm:inline-block glitch-text">
               SkullBrain
             </span>
@@ -59,7 +59,8 @@ export default function Header() {
           </SheetTrigger>
           <div className="flex-1 md:hidden flex">
             <Link href="/" className="flex items-center space-x-2">
-              <Skull className="h-6 w-6 text-primary glitch" />
+
+              <Image className="text-primary glitch" src={"/sb-logo.png"} width={24} height={24} alt="Logo" />
               <span className="font-bold font-headline sm:inline-block glitch-text">
                 SkullBrain
               </span>
@@ -71,8 +72,8 @@ export default function Header() {
               className="flex items-center space-x-2 mb-8"
               onClick={() => setOpen(false)}
             >
-              <Skull className="h-6 w-6 text-primary glitch" />
-              <span className="font-bold">SkullBrain</span>
+
+              <Image className="text-primary glitch" src={"/sb-logo.png"} width={24} height={24} alt="Logo" />  <span className="font-bold">SkullBrain</span>
             </Link>
             <div className="flex flex-col space-y-4">
               {navLinks.map(link => (

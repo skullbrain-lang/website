@@ -7,24 +7,6 @@ import { ArrowRight, BookOpen, CheckSquare } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 
-const SkullIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="1em"
-    height="1em"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M12 2a2 2 0 0 0-2 2v2H8a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2h2a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-2V8a2 2 0 0 0-2-2h-2V4a2 2 0 0 0-2-2z" />
-    <path d="M8 12h8" />
-    <path d="M9 16h6" />
-  </svg>
-);
 
 const FloatingThing = ({ children, className, animationDuration, animationDelay }: { children: React.ReactNode, className?: string, animationDuration?: string, animationDelay?: string }) => (
   <div
@@ -75,7 +57,9 @@ function Hero() {
     <FloatingThing className="top-[5%] right-[30%]" animationDuration="11s" animationDelay="5s">💯</FloatingThing>
 
     <div className="glitch group-data-[overdrive=true]:animate-fast-glitch">
-      <SkullIcon className="h-32 w-32 text-primary group-data-[overdrive=true]:animate-flash" />
+    
+    <Image src={"/sb-logo.png"} width={128} height={128} alt="Logo" className="text-primary group-data-[overdrive=true]:animate-flash" />
+   
     </div>
     <h1
       className="text-5xl md:text-7xl font-bold font-headline tracking-tighter my-6 glitch-text group-data-[overdrive=true]:animate-text-distort"
