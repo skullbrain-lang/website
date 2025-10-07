@@ -64,15 +64,38 @@ export async function getSpecificationData(): Promise<SpecificationData> {
 
     const files = await fetchFilesFromGithub();
 
-    files.forEach(file => {
-        data.set(file.slug, {
+    // 1. Process files to extract sorting and key data
+    const processedFiles = files.map(file => {
+        // Regex to match "chapter_N_name" and capture N (the number) and 'name'
+        // file.slug is the full name, e.g., "chapter_05_introduction"
+        const match = file.slug.match(/^chapter_(\d+)_(.*)$/i);
+
+        // Extract the number (for sorting) and the base name (for the Map key and label)
+        const chapterNumber = match ? parseInt(match[1], 10) : Infinity;
+        const baseName = match ? match[2] : file.slug;
+
+        return {
+            ...file,
+            chapterNumber,
+            baseName,
+        };
+    });
+
+    // 2. Sort the files numerically by chapterNumber
+    processedFiles.sort((a, b) => a.chapterNumber - b.chapterNumber);
+
+    // 3. Populate the Map using baseName as the key
+    processedFiles.forEach(file => {
+        data.set(file.baseName, { // Use file.baseName as the key ($name)
             download_url: file.download_url,
             label: file.label
-        })
-    })
-
+        });
+    });
+    
     return data
 }
+
+
 
 // Function to get a single content source (the markdown string)
 export async function getMarkdownSource(slug: string): Promise<string> {
@@ -82,6 +105,7 @@ export async function getMarkdownSource(slug: string): Promise<string> {
     if (USE_DUMMY_SPEC_SOURCE) {
         return DUMMY_SPEC_SOURCE_MAP.get(slug)!.content
     }
+    
     // Fetch the content from the download_url
     const contentRes = await fetch(fileInfo.download_url);
     if (!contentRes.ok) {

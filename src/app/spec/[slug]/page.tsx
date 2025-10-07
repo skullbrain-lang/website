@@ -1,9 +1,23 @@
 
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { MDXRemote, MDXRemoteOptions } from 'next-mdx-remote-client/rsc'
 import { getMarkdownSource } from '../data';
+import remarkGfm from 'remark-gfm'
 
 export default async function SpecPage({ params }: { params: { slug: string } }) {
     const { slug } = await params;
     const source = await getMarkdownSource(slug); 
-    return <MDXRemote source={source} />;
+
+    const options: MDXRemoteOptions = {
+        mdxOptions: {
+          remarkPlugins: [
+             remarkGfm
+          ], 
+        },
+    };
+
+    return (
+      <div className="prose dark:prose-invert">
+        <MDXRemote source={source} options={options}/>
+      </div>
+    );
 }

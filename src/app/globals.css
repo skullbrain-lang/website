@@ -1,5 +1,6 @@
 @import "tailwindcss";
-
+/* For markdown */
+@plugin "@tailwindcss/typography";
 
 @theme inline {
   --font-body: Inter, sans-serif;

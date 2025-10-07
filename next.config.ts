@@ -1,16 +1,20 @@
 import createMDX from '@next/mdx'
+
 import type { NextConfig } from 'next'
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [
+      // Without options
+      'remark-gfm',
+    ],
     rehypePlugins: [],
   },
   extension: /\.mdx?$/,
 })
 
 const nextConfig: NextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'mdx', "md", 'ts', 'tsx'],
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -18,14 +22,14 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  redirects:async function redirects() {
+  redirects: async function redirects() {
     return [
       {
         source: '/spec',
         destination: '/spec/introduction',
         // Use permanent: true for a 308 redirect, 
         // which tells browsers and search engines the move is permanent and cacheable.
-        permanent: true, 
+        permanent: true,
       },
     ];
   },
