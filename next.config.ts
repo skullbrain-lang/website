@@ -15,7 +15,6 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   output:"export",
-  basePath:"website",
   pageExtensions: ['js', 'jsx', 'mdx', "md", 'ts', 'tsx'],
   typescript: {
     ignoreBuildErrors: false,
