@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ArrowRight, BookOpen, CheckSquare } from 'lucide-react';
+import { ArrowRight, CheckSquare } from 'lucide-react';
 import Image from 'next/image';
 import React from 'react';
 
@@ -21,10 +21,6 @@ const FloatingThing = ({ children, className, animationDuration, animationDelay 
 
 
 export default function Home() {
-
-
-
-
   return (
     <div className="flex flex-col items-center bg-black text-white">
       {/* Hero Section */}
@@ -73,7 +69,7 @@ function Hero() {
     </p>
     <Button size="lg" asChild className="hover:scale-105 transition-transform duration-300 hover:shadow-lg hover:shadow-primary/50 glitch">
       <Link href="/editor">
-        Get Bussin'
+        Get Bussin&apos;
       </Link>
     </Button>
   </section>;

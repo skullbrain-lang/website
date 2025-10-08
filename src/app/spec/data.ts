@@ -37,10 +37,13 @@ const fetchFilesFromGithub = async (): Promise<(SpecificationInfo & { slug: stri
 
     if (!res.ok) throw new Error('Failed to fetch files from GitHub');
 
-    const json: Array<any> = await res.json();
+    const json: Array<{
+        name: string;
+        download_url: string;
+    }> = await res.json();
     return json
-        .filter((file: any) => file.name.endsWith('.md'))
-        .map((file: any) => ({
+        .filter((file) => file.name.endsWith('.md'))
+        .map((file) => ({
             download_url: file.download_url,
             label: formatAndCapitalize(file.name.replace(/\.md$/, '')),
             slug: file.name.replace(/\.md$/, '')
@@ -49,7 +52,7 @@ const fetchFilesFromGithub = async (): Promise<(SpecificationInfo & { slug: stri
 
 
 export async function getSpecificationData(): Promise<SpecificationData> {
-    let data = new Map()
+    const data = new Map()
 
     if (USE_DUMMY_SPEC_SOURCE) {
         DUMMY_SPEC_SOURCE_ARRAY.forEach(file => {

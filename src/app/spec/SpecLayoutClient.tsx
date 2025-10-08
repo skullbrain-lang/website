@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
     Sidebar,
@@ -14,7 +14,6 @@ import {
     SidebarTrigger,
     SidebarContent,
     SidebarGroup,
-    SidebarGroupLabel,
 } from "@/components/ui/sidebar"
 import { Book, ChevronRight, PlayCircle, ArrowRight } from "lucide-react"
 import Footer from "@/components/layout/Footer"
@@ -57,7 +56,7 @@ export default function SpecLayoutClient({ children, specEntries }: { children: 
                 </SidebarHeader>
                 <SidebarContent>
                     <SidebarMenu>
-                        {entries.map(([k, { download_url ,label}]) => (
+                        {entries.map(([k, { label }]) => (
                             <SidebarGroup key={k}>
                                 <SidebarMenuItem>
                                     <SidebarMenuButton

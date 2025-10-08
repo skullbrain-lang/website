@@ -96,7 +96,7 @@ export default function Header() {
             <span className="sr-only">GitHub</span>
           </Link>
           <Button asChild size="sm" className="glitch">
-            <Link href="/editor">Get Bussin'</Link>
+            <Link href="/editor">Get Bussin&apos;</Link>
           </Button>
         </div>
       </div>

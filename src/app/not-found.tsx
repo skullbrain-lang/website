@@ -125,7 +125,7 @@ type InteractiveSkullProps = CompositeModes & {
 // Interactive Skull Component
 const InteractiveSkull = ({ isOverdrive, matrixMode, rainbowMode, secretMode, onClick }: InteractiveSkullProps) => {
     const getSkullClasses = () => {
-        let classes = 'h-32 w-32 mx-auto transition-all duration-300 hover:scale-110';
+        const classes = 'h-32 w-32 mx-auto transition-all duration-300 hover:scale-110';
 
         if (matrixMode) return `${classes} text-green-400 animate-spin`;
         if (rainbowMode) return `${classes} text-transparent animate-bounce`;
@@ -155,7 +155,7 @@ type DynamicPhraseProps = CompositeModes & {
 // Dynamic Phrase Component
 const DynamicPhrase = ({ phrase, matrixMode, rainbowMode, secretMode, isOverdrive }: DynamicPhraseProps) => {
     const getPhraseClasses = () => {
-        let baseClasses = 'text-2xl font-bold font-headline uppercase mb-6 transition-all duration-500';
+        const baseClasses = 'text-2xl font-bold font-headline uppercase mb-6 transition-all duration-500';
 
         if (matrixMode) return `${baseClasses} text-green-400 animate-text-distort-slower font-mono`;
         if (rainbowMode) return `${baseClasses} text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text animate-bounce`;
@@ -189,10 +189,10 @@ const DynamicPhrase = ({ phrase, matrixMode, rainbowMode, secretMode, isOverdriv
 // Description Component
 const Description = ({ secretMode }: { secretMode: boolean }) => (
     <p className="text-lg text-muted-foreground mb-8 font-body">
-        The page you're looking for has been consumed by brainrot.
+        The page you&apos;re looking for has been consumed by brainrot.
         <br />
         <span className={secretMode ? 'animate-bounce inline-block' : ''}>
-            It's probably busy making TikToks instead of serving content.
+            It&apos;s probably busy making TikToks instead of serving content.
         </span>
     </p>
 );
@@ -218,16 +218,16 @@ const CodeBlock = ({ isOverdrive }: { isOverdrive: boolean }) => (
         <div className="bg-card border border-border rounded-lg p-6 text-left mx-auto max-w-2xl shadow-lg">
             <pre className="font-code text-sm leading-6 text-card-foreground overflow-x-auto">
                 <code>
-                    <span className="text-green-400">// SkullBrain.exe is having a moment</span><br />
-                    <span className="text-orange-400">import</span> &#123; <span className="text-blue-300">BrainCell</span> &#125; <span className="text-orange-400">from</span> <span className="text-green-300">'@skullbrain/neuron'</span>;<br />
+                    <span className="text-green-400">{'// SkullBrain.exe is having a moment'}</span><br />
+                    <span className="text-orange-400">import</span> &#123; <span className="text-blue-300">BrainCell</span> &#125; <span className="text-orange-400">from</span> <span className="text-green-300">&apos;@skullbrain/neuron&apos;</span>;<br />
                     <br />
                     <span className="text-orange-400">const</span> <span className="text-blue-300">userBrain</span> = <span className="text-orange-400">new</span> <span className="text-purple-400">BrainCell</span>();<br />
                     <br />
                     <span className="text-orange-400">if</span> (<span className="text-blue-300">userBrain</span>.<span className="text-yellow-300">isEmpty</span>()) &#123;<br />
-                    &nbsp;&nbsp;<span className="text-red-400">throw new</span> <span className="text-purple-400">SkillIssueException</span>(<span className="text-green-300">'No cap detected'</span>);<br />
+                    &nbsp;&nbsp;<span className="text-red-400">throw new</span> <span className="text-purple-400">SkillIssueException</span>(<span className="text-green-300">&apos;No cap detecte&apos;</span>);<br />
                     &#125;<br />
                     <br />
-                    <span className="text-gray-500">// TODO: Install brain.dll</span><br />
+                    <span className="text-gray-500">{"// TODO: Install brain.dll"}</span><br />
                     <span className="text-blue-300">process</span>.<span className="text-yellow-300">exit</span>(<span className="text-orange-300">404</span>);
                 </code>
             </pre>

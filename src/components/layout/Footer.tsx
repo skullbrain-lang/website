@@ -30,7 +30,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className="text-sm text-muted-foreground/50">
-          &copy; {currentYear} SkullBrain. Don't Steal This, It's a Bad Idea.
+          &copy; {currentYear} SkullBrain. Don&apos;t Steal This, It&apos;s a Bad Idea.
         </p>
       </div>
     </footer>

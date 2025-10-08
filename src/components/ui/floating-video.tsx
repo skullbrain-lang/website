@@ -118,7 +118,7 @@ const FloatingVideo: React.FC<FloatingVideoProps> = ({ videoUrl, onClose }) => {
         </div>
       </div>
       <div className="p-2 text-center bg-card">
-        <p className="text-xs text-muted-foreground font-handwritten">Your attention span is cooked. Here's something to watch while you "learn".</p>
+        <p className="text-xs text-muted-foreground font-handwritten">Your attention span is cooked. Here&apos;s something to watch while you &quot;learn&qout;.</p>
       </div>
       <div className="flex-1 w-full h-full bg-black">
         <iframe
