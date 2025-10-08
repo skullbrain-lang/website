@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Skull } from 'lucide-react';
+import { redirect } from 'next/navigation';
 
 // Secret sequences and words
 const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
@@ -200,12 +201,12 @@ const Description = ({ secretMode }: { secretMode: boolean }) => (
 // Action Buttons Component
 const ActionButtons = ({ isOverdrive }: { isOverdrive: boolean }) => (
     <div className="flex gap-4 justify-center mb-8 flex-wrap">
-        <button className={`px-6 py-3 bg-primary text-primary-foreground rounded-md font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden ${isOverdrive ? 'animate-fast-glitch' : ''}`}>
+        <button onClick={() =>{ redirect("/") }} className={`px-6 py-3 bg-primary text-primary-foreground rounded-md font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden ${isOverdrive ? 'animate-fast-glitch' : ''}`}>
             <span className="relative z-10">Go Home</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-500" />
         </button>
 
-        <button className={`px-6 py-3 bg-secondary text-secondary-foreground rounded-md font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden ${isOverdrive ? 'animate-fast-glitch' : ''}`}>
+        <button onClick={() =>{ redirect("/getting-started") }} className={`px-6 py-3 bg-secondary text-secondary-foreground rounded-md font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg relative overflow-hidden ${isOverdrive ? 'animate-fast-glitch' : ''}`}>
             <span className="relative z-10">Getting Started</span>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-500" />
         </button>

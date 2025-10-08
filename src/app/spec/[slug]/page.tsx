@@ -1,7 +1,16 @@
 
 import { MDXRemote, MDXRemoteOptions } from 'next-mdx-remote-client/rsc'
-import { getMarkdownSource } from '../data';
+import { getMarkdownSource, getSpecificationData } from '../data';
 import remarkGfm from 'remark-gfm'
+
+export async function generateStaticParams() {
+  const specDataMap = await getSpecificationData();
+  const slugs = Array.from(specDataMap.keys());
+
+  return slugs.map((key) => ({
+    slug: key,
+  }));
+}
 
 export default async function SpecPage({ params }: { params: { slug: string } }) {
     const { slug } = await params;

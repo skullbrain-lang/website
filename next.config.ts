@@ -14,6 +14,7 @@ const withMDX = createMDX({
 })
 
 const nextConfig: NextConfig = {
+  output:"export",
   pageExtensions: ['js', 'jsx', 'mdx', "md", 'ts', 'tsx'],
   typescript: {
     ignoreBuildErrors: false,
@@ -21,18 +22,11 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-
-  redirects: async function redirects() {
-    return [
-      {
-        source: '/spec',
-        destination: '/spec/introduction',
-        // Use permanent: true for a 308 redirect, 
-        // which tells browsers and search engines the move is permanent and cacheable.
-        permanent: true,
-      },
-    ];
-  },
+  // needed for soem reason
+  images: {
+    unoptimized: true,
+  }
+  
 }
 
 export default withMDX(nextConfig)
