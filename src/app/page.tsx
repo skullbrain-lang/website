@@ -54,7 +54,7 @@ function Hero() {
 
     <div className="glitch group-data-[overdrive=true]:animate-fast-glitch">
     
-    <Image src={"/sb-logo.png"} width={128} height={128} alt="Logo" className="text-primary group-data-[overdrive=true]:animate-flash" />
+    <Image src={"website/sb-logo.png"} width={128} height={128} alt="Logo" className="text-primary group-data-[overdrive=true]:animate-flash" />
    
     </div>
     <h1
