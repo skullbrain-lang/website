@@ -29,7 +29,7 @@ export default function Header() {
       <div className="w-full px-4 flex h-14 items-center max-w-none">
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Image className="text-primary glitch" src={"website/sb-logo.png"} width={24} height={24} alt="Logo" />
+            <Image className="text-primary glitch" src={"/sb-logo.png"} width={24} height={24} alt="Logo" />
             <span className="font-bold font-headline sm:inline-block glitch-text">
               SkullBrain
             </span>
@@ -60,7 +60,7 @@ export default function Header() {
           <div className="flex-1 md:hidden flex">
             <Link href="/" className="flex items-center space-x-2">
 
-              <Image className="text-primary glitch" src={"website/sb-logo.png"} width={24} height={24} alt="Logo" />
+              <Image className="text-primary glitch" src={"/sb-logo.png"} width={24} height={24} alt="Logo" />
               <span className="font-bold font-headline sm:inline-block glitch-text">
                 SkullBrain
               </span>
@@ -73,7 +73,7 @@ export default function Header() {
               onClick={() => setOpen(false)}
             >
 
-              <Image className="text-primary glitch" src={"website/sb-logo.png"} width={24} height={24} alt="Logo" />  <span className="font-bold">SkullBrain</span>
+              <Image className="text-primary glitch" src={"/sb-logo.png"} width={24} height={24} alt="Logo" />  <span className="font-bold">SkullBrain</span>
             </Link>
             <div className="flex flex-col space-y-4">
               {navLinks.map(link => (
