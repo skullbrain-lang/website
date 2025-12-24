@@ -40,7 +40,6 @@ const kalam = Kalam({
 
 export const metadata: Metadata = {
   title: 'SkullBrain',
-  description: 'Coding is a skibidi rizz.',
 };
 
 export default function RootLayout({
